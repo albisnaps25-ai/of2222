@@ -148,7 +148,6 @@
 
     /* Photo Grid */
     .photo-grid-wrapper {
-      position: relative;
       margin-top: 20px;
       padding: 0 10px;
     }
@@ -168,22 +167,19 @@
       transition: filter 0.3s;
     }
 
-    /* Unlock Overlay */
-    .unlock-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: calc(100% - 20px);
-      height: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      border-radius: 10px;
+    .photo-grid img:hover {
+      filter: blur(1.5px) brightness(1);
+    }
+
+    /* Unlock Button */
+    .unlock-btn {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    .unlock-overlay button {
-      padding: 12px 24px;
+      gap: 8px;
+      width: 85%;
+      margin: 16px auto 0;
+      padding: 14px;
       font-size: 16px;
       font-weight: 500;
       border: none;
@@ -194,7 +190,7 @@
       transition: background 0.3s;
     }
 
-    .unlock-overlay button:hover {
+    .unlock-btn:hover {
       background: #cc0000;
     }
   </style>
@@ -235,18 +231,18 @@
         <button>👁️ +18 Livestream</button>
       </div>
 
-      <!-- Photo Grid with Unlock Overlay -->
+      <!-- Photo Grid -->
       <div class="photo-grid-wrapper">
         <div class="photo-grid">
           <img src="photo1.jpg" alt="Photo 1">
           <img src="photo2.jpg" alt="Photo 2">
           <img src="photo3.jpg" alt="Photo 3">
         </div>
-        <div class="unlock-overlay">
-          <button>🔓 Unlock All</button>
-        </div>
+        <!-- Unlock All Button -->
+        <button class="unlock-btn">🔓 Unlock All</button>
       </div>
     </div>
   </div>
 </body>
 </html>
+
