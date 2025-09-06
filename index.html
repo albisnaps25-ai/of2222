@@ -147,54 +147,43 @@
     }
 
     /* Photo Grid */
-    .photo-grid {
+    .photo-grid-wrapper {
+      position: relative;
       margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
       padding: 0 10px;
     }
 
-    .photo {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
     }
 
-    .photo img {
+    .photo-grid img {
       width: 100%;
       aspect-ratio: 1 / 1;
+      border-radius: 8px;
       object-fit: cover;
       filter: blur(2.5px) brightness(0.95);
       transition: filter 0.3s;
-      border-radius: 8px;
     }
 
-    .photo:hover img {
-      filter: blur(1.5px) brightness(1);
-    }
-
-    .lock-overlay {
+    /* Unlock Overlay */
+    .unlock-overlay {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 28px;
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-      padding: 10px;
-    }
-
-    /* Unlock Button */
-    .unlock-btn {
+      top: 0;
+      left: 0;
+      width: calc(100% - 20px);
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
-      width: 85%;
-      margin: 20px auto 0;
-      padding: 14px;
+    }
+
+    .unlock-overlay button {
+      padding: 12px 24px;
       font-size: 16px;
       font-weight: 500;
       border: none;
@@ -205,7 +194,7 @@
       transition: background 0.3s;
     }
 
-    .unlock-btn:hover {
+    .unlock-overlay button:hover {
       background: #cc0000;
     }
   </style>
@@ -246,24 +235,17 @@
         <button>👁️ +18 Livestream</button>
       </div>
 
-      <!-- Photo Grid -->
-      <div class="photo-grid">
-        <div class="photo">
+      <!-- Photo Grid with Unlock Overlay -->
+      <div class="photo-grid-wrapper">
+        <div class="photo-grid">
           <img src="photo1.jpg" alt="Photo 1">
-          <div class="lock-overlay">🔒</div>
-        </div>
-        <div class="photo">
           <img src="photo2.jpg" alt="Photo 2">
-          <div class="lock-overlay">🔒</div>
-        </div>
-        <div class="photo">
           <img src="photo3.jpg" alt="Photo 3">
-          <div class="lock-overlay">🔒</div>
+        </div>
+        <div class="unlock-overlay">
+          <button>🔓 Unlock All</button>
         </div>
       </div>
-
-      <!-- Unlock All Button -->
-      <button class="unlock-btn">🔓 Unlock All</button>
     </div>
   </div>
 </body>
